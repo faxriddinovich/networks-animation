@@ -1,0 +1,82 @@
+.box-main{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.data-pocket{
+    width: 275px;
+    height: 125px;
+    margin: 25px auto;
+    border: 1px solid white;
+    transition: all 1s linear;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animation-box ease 0.8s;
+}
+
+.data-pocket_title{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.message-icon{
+    transform: rotateZ(90deg) !important;
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+}
+
+.decoding-message{
+    width: 70px;
+    height: 70px;
+    color: white;
+    animation: anime-message 0.8s infinite linear alternate-reverse;
+}
+
+.network-layer{
+    width: 325px;
+    height: 125px;
+    margin: 25px auto;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: all 1s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    animation: animation-box ease 0.8s; 
+}
+
+.network-layer:hover,.data-pocket:hover{
+    transform: rotateZ(360deg);
+}
+
+.network-layer p{
+    color: white;
+    text-align: center;
+    line-height: 27px;
+}
+
+.title-layer{
+    margin-top: 25px;
+}
+
+@keyframes anime-message {
+    from{
+        margin-left: 0;
+    }
+    to{
+        margin-left: 25px;
+    }
+}
+
+@keyframes infinite-rotate {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}

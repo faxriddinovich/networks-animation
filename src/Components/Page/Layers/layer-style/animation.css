@@ -1,0 +1,64 @@
+.title-layer,.arrow-down{
+    animation: animationTitle ease 0.8s;
+}
+
+.first-text,.corner-right{
+    animation: first-text_anime ease 0.8s;
+}
+
+.second-text,.corner-right-up{
+    animation: second-text_anime ease 0.8s;
+}
+
+.box_one,.box_two{
+    animation: animation-box ease 0.8s;
+}
+
+.medium-box,.arrow-up{
+    animation: transmission-anime 0.8s ease;
+}
+
+@keyframes animationTitle{
+    from{
+        transform: translateY(-25px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes first-text_anime{
+    from{
+        transform: translateX(-45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes second-text_anime{
+    from{
+        transform: translateX(45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-box{
+    from{
+        transform: scale(0.3);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+@keyframes transmission-anime{
+    from{
+        transform: translateY(45px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}

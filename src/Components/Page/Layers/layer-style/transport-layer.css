@@ -1,0 +1,90 @@
+.device-icon,.laptop-icon,.tv-icon,.mobile-icon{
+    width: 75px;
+    height: 75px;
+    text-align: center;
+}
+
+.device-icon_svg,.line-icon_svg,.laptop-icon_svg,.tv-icon_svg,.mobile-icon_svg{
+    width: 70px;
+    height: 70px;
+    color: white;
+}
+
+.mt-2{
+    margin-top: 20px;
+}
+
+.anime-from-left{
+    animation-name: animation-from-left;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+}
+
+.anime-from-right{
+    animation-name: animation-from-right;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+}
+
+.anime-from-top{
+    animation-name: animation-from-top;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+}
+
+.anime-from-bottom{
+    animation-name: animation-from-bottom;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+}
+
+.anime-scale{
+    animation-name: animation-scale;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes animation-from-left {
+    from{
+        transform: translateX(-45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-from-right {
+    from{
+        transform: translateX(45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-from-top{
+    from{
+        transform: translateY(-45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-from-bottom{
+    from{
+        transform: translateY(45px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-scale {
+    from{
+        transform: scale(0.4);
+    }
+    to{
+        transform: scale(1);
+    }
+}

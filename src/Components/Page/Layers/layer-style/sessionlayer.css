@@ -1,0 +1,22 @@
+.title-function{
+    color: white;
+    text-align: center;
+}
+
+.data-icon,.auth-icon{
+    width: 275px;
+    height: 275px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.data-icon_svg,.auth-icon_svg{
+    color: white;
+    width: 200px;
+    height: 200px;
+    transition: 0.3s linear all;
+}
+
+.data-icon_svg:hover,.auth-icon_svg:hover{
+    transform: scale(1.2);
+}
