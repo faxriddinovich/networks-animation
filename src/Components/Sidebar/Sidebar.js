@@ -59,6 +59,13 @@ function Sidebar() {
                 "Ma'lumotlar bir yo'nalishda oqadi, ya'ni u bir yo'nalishli, lekin har bir Tarmoq tugunlari o'rtasida 2 ta ulanishga ega bo'lgan holda uni ikki tomonlama qilish mumkin, u Dual Ring Topologiyasi deb ataladi. In-Ring Topologiyasi, Token Ring Passing protokoli ma'lumotlarni uzatish uchun ish stantsiyalari tomonidan qo'llaniladi.",
             theme_id: 3,
             animation_link: "https://prod.spline.design/WjcXwHhr-7PjvOVz/scene.splinecode"
+        },
+        {
+            id:Math.floor(Math.random()*2000-10),
+            title_article:"Star",
+            content:"Yulduzli topologiyada barcha qurilmalar kabel orqali bitta markazga ulangan. Bu markaz markaziy tugundir va boshqa barcha tugunlar markaziy tugunga ulanadi. Hub passiv xarakterga ega bo'lishi mumkin, ya'ni radioeshittirish qurilmalari kabi aqlli markaz emas, ayni paytda markaz faol markaz sifatida tanilgan aqlli bo'lishi mumkin. Faol hublarda takrorlagichlar mavjud. Kompyuterlarni ulash uchun koaksiyal kabellar yoki RJ-45 kabellari ishlatiladi. Yulduzli topologiyada ko'plab mashhur Ethernet LAN protokollari CD (to'qnashuvni aniqlash), CSMA (Carrier Sense Multiple Access) va boshqalar sifatida ishlatiladi.",
+            theme_id:3,
+            animation_link:"https://prod.spline.design/N1WWY0lCAhK90zeZ/scene.splinecode"
         }
     ]
 
