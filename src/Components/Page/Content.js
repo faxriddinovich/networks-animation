@@ -1,14 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import '../Sidebar/style/animation.css'
 import '../Sidebar/style/animation.css'
 import ExclusivePage from './ExclusivePage'
 import Spline from '@splinetool/react-spline';
 
 function Content({item}) {
-
-    useEffect(()=>{
-        console.log(item)
-    },[])
 
   return (
     <div className='wrapper-container'>

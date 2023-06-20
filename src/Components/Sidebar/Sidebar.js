@@ -102,16 +102,6 @@ function Sidebar() {
     }
 
     function showItems(id,title){
-        // if(title==='articels'){
-        //     $.ajax({
-        //         type:"POST",
-        //         url:'http://localhost:8000/items.php',
-        //         data:{id:id,tableName:title},
-        //         success(message){
-        //             setItems(JSON.parse(message))
-        //         }
-        //     })
-        // }
         if(title==='exclusive') {
             let items = document.querySelectorAll('li.article');
             [].forEach.call(items, function(el) {
@@ -123,10 +113,6 @@ function Sidebar() {
             setArticle('exclusive')
             }
     }
-
-    useEffect(()=>{
-        console.log(array.filter(item=>item.theme_id==2))
-    },[])
   return (
     <div className='container-fluid'>
         <div className='row'>
@@ -164,7 +150,18 @@ function Sidebar() {
             </div>
             
             <div className='col-md-10'>
-                {article ? <Content item={article}/> : <h1 className='text-center mt-3'>Ixtiyoriy mavzuni tanlang.</h1>}
+                {article ? <Content item={article}/> : <div className={'wrapper-container'}>
+                    <div className={'container-fluid'}>
+                        <div className={'row'}>
+                            <div className={'col-md-12'}>
+                                <h1 className={'text-center my-2'}>Kompyuter immitatsion modeli.</h1>
+                                <p className={'content-text my-2'}>
+                                    Kompyuter imitatsion modeli – bu real hodisa va jarayonning kompyuter dasturlari asosidagi adekvat yoki yaqinlashtirilgan modelidir. Kompyuter asosidagi imitatsion modelashtirish odatda obyektni o’rganish, hodisalar, predmet soha, hayotiy vaziyatlar va masalalarning qanday ko’rinishda bo’lishidan boshlanadi. Obyekt o’rganib bo’lingandan so’ng model tuziladi. Model tuzishda asosiy bosh omillar ajratiladi (ikkinchi darajalilari tashlab yuboriladi). Undan so’ng algoritm, dastur tuziladi va kompyuter eksperimenti o’tkaziladi. Kompyuter imitatsion modeli dan o’quv qo’llanmalarda foydalanish analitik (hisoblash va mantiqiy) va kompyuterning obrazli ko’rinishida o’quv materiallarini taqdim etish imkoniyatlarini hamda o’rganilayotgan obyektning ichki va tashqi xossalarini namoyon qilishga zamin yaratadi. Kompyuter imitatsion modeli asosida multimediali elektron qo’llanmalar va virtual laboratoriyalarni yaratish va ulardan foydalanish ishlari yo’lga qo’yiladi (metodikasi yaratiladi).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>}
             </div>
         </div>
     </div>
