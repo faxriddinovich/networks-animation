@@ -4,13 +4,88 @@ import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 import './style/sidebar.css'
 import Content from '../Page/Content'
-import $ from 'jquery'
-import ExclusivePage from '../Page/ExclusivePage'
 
 function Sidebar() {
 
-    const [result,setResult] = useState('')
-    const [items,setItems] = useState([])
+    const array = [
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article:"Lokal tarmoq",
+            content:"Lokal tarmoqlar - bir binoda yoki bir-biriga yaqin binolarda joylashgan kompyuterlarda o‘zaro axborot almashish imkonini beruvchi tarmoq hisoblanadi. \n" +
+                "\n" +
+                "Bunday tarmoqlarda axborot almashinish aloqa kabellari (ba’zan, telefon tizimi yoki radiokanal) orqali amalga oshiriladi. Bunda foydalanuvchilar tarmoqqa ulangan kompyuterlardagi ma’lumotlarni birgaliqda qayta ishlash va ma’lumotlarni ayirboshlash va dastur, chop etish qurilmasi, modem va boshqa qurilmalardan birgalikda foydalanish imkoniyatiga ega bo‘lishadi. ",
+            theme_id:1,
+            animation_link:"https://prod.spline.design/thotrHwPg4eHnuL9/scene.splinecode"
+        },
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article: "Mintaqaviy tarmoq",
+            content: "Mintaqaviy tarmoq — biror tuman, viloyat yoki respublika miqyosidagi kompyuterlarni o‘zida mujassamlashtirgan tarmoq. \n" +
+                "\n" +
+                "Bunday tarmoqda bir nechta markazlashgan (ya’ni lokal tarmoqlarni birlashtiruvchi) juda quvvatli serverlar mavjud bo‘ladi va bunday serverlar o‘rtasidagi axborot aloqa kabeli, optik tolali yoki sunhiy yo‘ldosh radioaloqa kanallari yordamida uzatiladi. ",
+            theme_id: 1,
+            animation_link: "https://prod.spline.design/IH9oYwN92F3avprb/scene.splinecode\n"
+        },
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article: "Global tarmoq",
+            content: "Global tarmoq— dunyoning ixtiyoriy davlatidagi kompyuterlarni o‘zida birlashtirish imkoniga ega bo‘lgan tarmoq. Bu tarmoq internet (Intenet) deb ham yuritiladi.\n" +
+                "Internet bilan birga intranet tushunchasi ham ishlatiladi.\n" +
+                "Intranet— bu internet texnologiyasi, dastur ta’minoti va bayonnomalari asosida tashkil etilgan, ma’lumotlar ombori va elektron jadvallar bilan jamoa bo‘lib ishlash imkonini beruvchi korxona yoki tashkilot miqyosidagi yangi axborot muhitini tashkil etuvchi kompyuter tarmog‘idir.\n" +
+                "Intranet boshqa kompyuter tarmoqlaridan quyidagi jihati bilan farklanadi: bir yoki bir nechta serverdan tashkil topgan tarmoq mijozi undagi ma’lumotlardan foydalanish uchun ularning qaysi serverda, qaysi katalogda, qanday nom bilan saqlanayotganligini, ularga kirish usul va shartlarini bilishi zarur bo‘ladi.\n" +
+                "Internetda esa bunday noqulayliklarning oldi olingan bo‘lib, uning foydalanuvchisi bunday ma’lumotlarni bilishi shart emas. Bundan tashqari, internet tarmog‘ida mavjud bo‘lgan barcha elektron hujjatlar va ma’lumotlar omborini giperbog‘lanishlar yordamida o‘zaro bog‘lab yagona axborot muhiti qurish, unda qulay axborot qidiruv tizimlarini tashkil etish mumkin bo‘ladi.",
+            theme_id: 1,
+            animation_link: "https://prod.spline.design/ejuW4qUa4jpwBVW7/scene.splinecode"
+        },
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article: "Point to Point",
+            content: "Point to point topologiya - jo'natuvchi va qabul qiluvchining funksionalligi ustida ishlaydigan topologiyaning bir turi. Bu ikkita tugun o'rtasidagi eng oddiy aloqa bo'lib, ulardan biri jo'natuvchi, ikkinchisi esa qabul qiluvchidir. Point-to Point yuqori tarmoqli kengligini ta'minlaydi.",
+            theme_id: 3,
+            animation_link: "https://prod.spline.design/NQ-0KByQCD2c4FmD/scene.splinecode"
+        },
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article: "Bus",
+            content: "Shina topologiyasi - bu har bir kompyuter va tarmoq qurilmasi bitta kabelga ulangan tarmoq turi. U ikki tomonlama. Bu ko'p nuqtali ulanish va mustahkam bo'lmagan topologiya, chunki magistral ishlamay qolsa topologiya buziladi. Avtobus topologiyasida turli MAC (Media kirishni boshqarish) protokollaridan keyin TDMA, Pure Aloha, CDMA, Slotted Aloha va boshqalar kabi LAN chekilgan ulanishlari qo'llaniladi.",
+            theme_id: 3,
+            animation_link: "https://prod.spline.design/OzFFM1s8EcYuWFLi/scene.splinecode"
+        },
+        {
+            id: Math.floor(Math.random()*2000+10),
+            title_article: "Xalqasimon",
+            content: "Ring topologiyasida u ikkita qo'shni qurilmalar bilan bog'lovchi qurilmalarni halqa hosil qiladi. Ko'p sonli tugunlarga ega bo'lgan Ring topologiyasi uchun bir qator takrorlagichlar qo'llaniladi, chunki agar kimdir 100 ta tugunli halqa topologiyasining oxirgi tuguniga ba'zi ma'lumotlarni jo'natmoqchi bo'lsa, u holda ma'lumotlar 100-ga etish uchun 99 tugundan o'tishi kerak bo'ladi. tugun. Shunday qilib, tarmoqda ma'lumotlar yo'qolishining oldini olish uchun takrorlagichlardan foydalaniladi.\n" +
+                "\n" +
+                "Ma'lumotlar bir yo'nalishda oqadi, ya'ni u bir yo'nalishli, lekin har bir Tarmoq tugunlari o'rtasida 2 ta ulanishga ega bo'lgan holda uni ikki tomonlama qilish mumkin, u Dual Ring Topologiyasi deb ataladi. In-Ring Topologiyasi, Token Ring Passing protokoli ma'lumotlarni uzatish uchun ish stantsiyalari tomonidan qo'llaniladi.",
+            theme_id: 3,
+            animation_link: "https://prod.spline.design/WjcXwHhr-7PjvOVz/scene.splinecode"
+        }
+    ]
+
+    const [mainState,setMainState] = useState([
+        {
+            id: 1,
+            title: "Tarmoqlar",
+            unique_id:"first_theme",
+            icon:"bi bi-hdd-network-fill",
+            child:true
+        },
+        {
+            id: 2,
+            title: "Internet protokollari",
+            unique_id:"second_theme",
+            icon:"bi bi-pc-display",
+            child:false
+        },
+        {
+            id: 3,
+            title: "Tarmoq topologiyasi",
+            unique_id:"third_theme",
+            icon:"bi bi-database-gear",
+            child:true
+        }
+    ])
+    const [children,setChildren] = useState([])
     const [article,setArticle] = useState('')
 
     function selectItem(id,item){
@@ -21,35 +96,23 @@ function Sidebar() {
         });
 
         let newItem = document.getElementById(id)
-        console.log(newItem)
         newItem.classList.add('active')
 
         setArticle(item)
     }
 
-    useEffect(()=>{
-        	$.ajax({
-			type: "POST",
-			url: 'http://localhost:8000/server.php',
-			data: {title:'themes'},
-			success(data) {
-				setResult(JSON.parse(data));
-			},
-		});
-    },[])
-
     function showItems(id,title){
-        if(title==='articels'){
-            $.ajax({
-                type:"POST",
-                url:'http://localhost:8000/items.php',
-                data:{id:id,tableName:title},
-                success(message){
-                    setItems(JSON.parse(message))
-                }
-            })
-        }
-        else if(title==='exclusive') {
+        // if(title==='articels'){
+        //     $.ajax({
+        //         type:"POST",
+        //         url:'http://localhost:8000/items.php',
+        //         data:{id:id,tableName:title},
+        //         success(message){
+        //             setItems(JSON.parse(message))
+        //         }
+        //     })
+        // }
+        if(title==='exclusive') {
             let items = document.querySelectorAll('li.article');
             [].forEach.call(items, function(el) {
                 el.classList.remove("active");
@@ -60,6 +123,10 @@ function Sidebar() {
             setArticle('exclusive')
             }
     }
+
+    useEffect(()=>{
+        console.log(array.filter(item=>item.theme_id==2))
+    },[])
   return (
     <div className='container-fluid'>
         <div className='row'>
@@ -71,29 +138,27 @@ function Sidebar() {
                     <hr className='text-white d-none d-sm-block'/>
                     <ul className="nav nav-pills flex-column mt-2 mt-sm-0 " id='parentM'>
                         
-                        {result ? result.map(item =>{
-                            return <li className="nav-item my-1 py-2 py-sm-0 parent-content" key={item[0]} id={item[0]+'parent'} onClick={()=>{
-                                if(item[4]){
-                                    showItems(item[0],'articels')
-                                }
-                                else showItems(item[0]+'parent','exclusive')
+                        {mainState.map(item =>{
+                            return <li className="nav-item my-1 py-2 py-sm-0 parent-content" key={item.id} id={item.id+'parent'} onClick={()=>{
+                                if(!item.child) showItems(item.id+'parent','exclusive')
+                                else if (item.child) setChildren(array.filter(content=>content.theme_id==item.id))
                             }}>
-                            <a href={`#`+item[2]} className="nav-link  text-white text-center text-sm-start" data-bs-toggle="collapse" aria-current="page">
-                                <i className={item[3]}></i>
-                                <span className='ms-2  d-none d-sm-inline'>{item[1]}</span>
-                                {item[4] ? <i className='bi bi-chevron-down ms-0 ms-sm-3'></i> : ''}
+                            <a href={`#`+item.unique_id} className="nav-link  text-white text-center text-sm-start" data-bs-toggle="collapse" aria-current="page">
+                                <i className={item.icon}></i>
+                                <span className='ms-2  d-none d-sm-inline'>{item.title}</span>
+                                {item.child ? <i className='bi bi-chevron-down ms-0 ms-sm-3'></i> : ''}
                             </a>
-                            {item[4] ? <ul className='nav collapse ms-2 flex-column' id={item[2]} data-bs-parent={item[4] ? "#parentM" : ''}>
-                                {items.map(content=>{
-                                    return <li className="nav-item article" key={item[0]} id={content[0]} onClick={()=>selectItem(content[0],content)}>
+                            {item.child ? <ul className='nav collapse ms-2 flex-column' id={item.unique_id} data-bs-parent={"#parentM"}>
+                                { children.map(content=>{
+                                    return <li className="nav-item article" key={content.id} id={content.id} onClick={()=>selectItem(content.id,content)}>
                                         <a className="nav-link text-white" href="#" aria-current="page">
-                                            <span className='d-none d-sm-inline'>{content[1]}</span> 1
+                                            <span className='d-none d-sm-inline'>{content.title_article}</span> 1
                                         </a>    
                                     </li>
                                 })}
                             </ul> : ""}
                         </li>
-                        }) : ''}
+                        })}
                     </ul>
                 </div>
             </div>
